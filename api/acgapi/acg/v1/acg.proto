@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "api/genproto/acg;acg";
+
+package acg.v1;
+
+service AcgService {
+    rpc Animation(AnimationRequest) returns (AnimationResponse) {}
+    rpc Comics(ComicsRequest) returns (ComicsResponse) {}
+}
+
+message AnimationRequest {
+    string name = 1;
+}
+
+message AnimationResponse {
+    string message = 1;
+}
+
+message ComicsRequest {
+    string name = 1;
+}
+
+message ComicsResponse {
+    string message = 1;
+}
