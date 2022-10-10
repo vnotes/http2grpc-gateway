@@ -17,7 +17,7 @@ type server struct {
 }
 
 func (*server) Animation(ctx context.Context, in *pb.AnimationRequest) (*pb.AnimationResponse, error) {
-	return &pb.AnimationResponse{Message: fmt.Sprintf("I like %s", in.Name)}, nil
+	return &pb.AnimationResponse{Message: fmt.Sprintf("I like %s from %s", in.Name, in.Timestamp.AsTime().GoString())}, nil
 }
 
 func main() {

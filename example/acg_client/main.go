@@ -7,11 +7,16 @@ import (
 	"io"
 	"log"
 	"net/http"
+
+	"github.com/vnotes/http2grpc-gateway/api/acgapi"
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 func main() {
 	var ctx = context.Background()
-	body := bytes.NewReader([]byte(`{"name": "東京喰種トーキョーグール"}`))
+	r, _ := protojson.Marshal(&acgapi.AnimationRequest{Name: "東京喰種トーキョーグール", Timestamp: timestamppb.Now()})
+	body := bytes.NewReader(r)
 	req, err := http.NewRequestWithContext(ctx, http.MethodPost, "http://127.0.0.1:9999/proxy", body)
 	if err != nil {
 		log.Fatalf("new request err %s", err)

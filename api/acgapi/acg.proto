@@ -4,6 +4,8 @@ option go_package = "github.com/vnotes/http2grpc-gateway/api/acgapi;acgapi";
 
 package acgapi;
 
+import "google/protobuf/timestamp.proto";
+// import "xoapi/xo.proto";
 
 service AcgService {
     rpc Animation(AnimationRequest) returns (AnimationResponse) {}
@@ -12,10 +14,12 @@ service AcgService {
 
 message AnimationRequest {
     string name = 1;
+    google.protobuf.Timestamp timestamp = 2;
 }
 
 message AnimationResponse {
     string message = 1;
+    // xoapi.Kiss action = 2;
 }
 
 message ComicsRequest {

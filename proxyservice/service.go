@@ -11,6 +11,7 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protodesc"
 	"google.golang.org/protobuf/reflect/protoreflect"
+	"google.golang.org/protobuf/reflect/protoregistry"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 
@@ -188,7 +189,7 @@ func getServiceInfo(ctx context.Context, addr string) (*Service, error) {
 			if err := proto.Unmarshal(d, pb); err != nil {
 				return nil, err
 			}
-			fd, err := protodesc.NewFile(pb, nil)
+			fd, err := protodesc.NewFile(pb, protoregistry.GlobalFiles)
 			if err != nil {
 				return nil, err
 			}
