@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-option go_package = "api/genproto/acg;acg";
+option go_package = "github.com/vnotes/http2grpc-gateway/api/acgapi;acgapi";
 
-package acg.v1;
+package acgapi;
+
 
 service AcgService {
     rpc Animation(AnimationRequest) returns (AnimationResponse) {}

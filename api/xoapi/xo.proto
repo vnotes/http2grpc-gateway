@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "github.com/vnotes/http2grpc-gateway/api/xoapi;xoapi";
+
+package xoapi;
+
+message Kiss {
+    string name = 1;
+}

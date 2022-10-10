@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/vnotes/http2grpc-gateway/api/genproto/acg/v1"
+	pb "github.com/vnotes/http2grpc-gateway/api/acgapi"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
